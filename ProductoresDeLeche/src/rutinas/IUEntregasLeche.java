@@ -1,24 +1,32 @@
-package rutinas;
-
-/*
- * Es importante someter a reflexión el uso de variables globales contra las variables locales.
- *
- * 1. Por qué, por ejemplo, para la opción 3, donde se busca la cantidad de entregas de un productor
- * no hacemos "numProd" una variable global de tal forma que cuando llamamos la función
- * Rutinas.obtenerEntregasPorProductor() no se tenga que pasar como parámetro sino que ya se conozca
- * su valor en el módulo Rutinas y la función la pueda utilizar con el valor que aquí se asignó
- *
- * 2. En la función agregarProductor, se declara un arreglo local listaEntregas y no se utiliza el
- * arreglo que en sí almacena las entregas (el que se encuentra declarado en Rutinas). Por qué no
- * utilizamos directamente ese arreglo y no que hacemos uso del arreglo local.
- *
- * 3. Por qué no declaramos cantProductores con ámbito global y no tendríamos que llamar a la
- * función Rutinas.obtenerTotalProductores() donde aquí la necesitemos. Como sucede en la
- * funcióm imprimirPagoProductores() ó en la función mostrarLista()
- *
+/**
+ * Nombre: Segundo Parcial.
+ * Descripción:  A. Haga una función que reciba recibe el id del productor y retorne la cantidad total de botellas entregadas por ese productor
+ *      (NOTA: LA CANTIDAD TOTAL SE REFIERE A LA SUMATORIA DE TODAS LAS BOTELLAS DE TODAS LAS ENTREGAS REALIZADAS POR DICHO PRODUCTOR).
+ * B. Haga una función que, recibiendo el id del productor, retorne el promedio de botellas entregadas por el productor
+ *      (ESTO ES LA CANTIDAD TOTAL DE BOTELLAS ENTRE LA CANTIDAD DE ENTREGAS)
+ * C. Haga una función que calcule la cantidad total de botellas recibidas por la compañía
+ *      (ESTO ES LA SUMATORIA TOTAL DE LA CANTIDAD TOTAL DE BOTELLAS DE CADA PRODUCTOR)
+ * D. Haga una función que calcule el promedio de botellas recibidas por la compañía
+ *      (ESTO ES LA SUMATORIA TOTAL DE LA CANTIDAD TOTAL DE BOTELLAS DE CADA PRODUCTOR ENTRE LA SUMATORIA TOTAL
+ *      DE ENTREGAS DE TODOS LOS PRODUCTORES)
+ * E. Haga una rutina que le asigne una cantidad de estrellas al productor basada en los siguientes criterios:
+ *      1 estrella si el promedio de botellas entregadas del productor es menor o igual al promedio de la compañía,
+*       2 estrellas si el promedio de botellas entregadas por el productor es superior en un 20 % o menos al promedio de la compañía,
+ *      3 estrellas si el promedio de botellas entregadas por el productor es superior entre un 21% y un 50 %  al promedio de la compañía,
+ *      4 estrellas si el promedio de botellas entregadas por el productor es superior entre un 51% y un 70 % al promedio de la compañía y
+ *      5 estrellas si el promedio de botellas entregadas por el productor es superior en un 70 % o más al promedio de la compañía.
+ * F. Haga una función que retorne una lista con el id del productor y la cantidad de estrellas que se le adjudicaron.
+ * Fecha 27-04-2019.
+ * Autor: Elena Martínez Baudrit.
+ * Fecha de modificación: 27-04-2019.
+ * Modificado por: Elena Martínez Baudrit.
  */
 
+
+package rutinas;
+
 import java.io.*;
+import java.util.HashMap;
 
 
 public class IUEntregasLeche{
@@ -56,26 +64,22 @@ public class IUEntregasLeche{
 
         out.println();
         out.println("1.  Agregar productor");
-        out.println("2.  Leche entregada a la Cía.");
-        out.println("3.  Número de entregas por productor");
-        out.println("4.  Leche por productor");
-//        out.println("5.  Menor número de entregas y número del productor");
-//        out.println("6.  Mayor número de entregas de productor");
-        out.println("7.  Asignacion de estrellas. Pregunta E del examen");
-        out.println("8.  Total de botellas de leche recibidas. Pregunta C del examen");
-        out.println("9.  Promedio de Leche. Pregunta D del examen");
-//        out.println("10. Modificar el precio de la botella de leche");
-        out.println("11. Salir");
-//        out.println("12. Cantidad de botellas por entrega por productor");
+        out.println("2.  Cantidad total de botellas entregadas por un productor específico (Pregunta A)");
+        out.println("3.  Promedio de botellas por productor específico (Pregunta B)");
+        out.println("4.  Cantidad total de botellas recibidas por la Compañía (Pregunta C)");
+        out.println("5.  Promedio de botellas recibidas por la Compañía (Pregunta D)");
+        out.println("6.  Asignación de estrellas por productor (Pregunta E)");
+        out.println("7.  Asignación de estrellas para cada uno de los productores (Pregunta F)");
+        out.println("8.  Salir");
         out.println();
     }
 
     /*****************************************************************
      * Rutina: leerOpcion
      * Propósito: Obtener del usuario la opcíón escogida
-     * Parámetros:
-     *
-     * Retorna:
+     * Parámetros: int opcion
+     *              Permite desarrollar la funcion que escogió el usuario
+     * Retorna: opción escogida por usuario.
      *****************************************************************/
 
     static int leerOpcion()throws java.io.IOException{
@@ -98,19 +102,19 @@ public class IUEntregasLeche{
      *			Un valor que indica si se desea continuar o salir del menú
      *****************************************************************/
 
-    static boolean ejecutarAccion(int pOpcion)throws java.io.IOException{
+    static boolean ejecutarAccion(int pOpcion)throws java.io.IOException {
 
 
         boolean noSalir = true;
-        int numProd=0;
+        int numProd = 0;
 
 
-        if (pOpcion >= 2 && pOpcion <= 8 && Rutinas.obtenerTotalProductores() == 0){
+        if (pOpcion >= 2 && pOpcion <= 8 && Rutinas.obtenerTotalProductores() == 0) {
             out.println("No hay registrados productores");
             return noSalir;
         }
 
-        switch(pOpcion){
+        switch (pOpcion) {
 
 
             case 1: //Opcion Agregar Productor
@@ -118,105 +122,120 @@ public class IUEntregasLeche{
                 agregarProductor();
                 break;
 
-            case 2:// 'Opcion Total de leche entregada a la Cia
-
-                out.println();
-                out.println("Se han recibido " + Rutinas.calcularTotalLeche() + " botella(s)");
-                break;
-
-            case 3: //Opcion Numero de entregas por productor
-
-                int entregas;
-                numProd = solicitarProductor();
-                entregas = Rutinas.obtenerEntregasProductor(numProd);
-
-                if (entregas != 0){
-
-                    out.println("El productor " + numProd + " ha realizado " + entregas + " entregas");
-                }else{
-                    out.println("Productor no registrado");
-                }
-                break;
-
-
-            case 4: //Opcion Leche entregada por productor
-
+            case 2: //Cantidad total de botellas por productor específico - Pregunta A
 
                 int totalLeche;
                 numProd = solicitarProductor();
                 totalLeche = Rutinas.obtenerLecheProductor(numProd);
 
-                if (totalLeche != 0){
+                if (totalLeche != 0) {
 
-                    out.println("El productor " + numProd + " ha entregado "+ totalLeche + " botellas");
-                }else{
+                    out.println("El productor " + numProd + " ha entregado " + totalLeche + " botellas");
+                } else {
 
                     out.println("Productor no registrado");
                 }
                 break;
 
-            case 5: //Opcion determinar datos del menor: número del productor y entregas
+            case 3: //Promedio de botellas por productor - Pregunta B
 
-                int [] elMenor;
-                elMenor = Rutinas.obtenerMenorEntregas();
-                out.println("El Productor número " + elMenor[0] + " ha realizado "+ elMenor[1] + " entrega(s) ");
-                break;
+                int entregas;
+                float promBotellasPorProd;
 
-            case 6:
-
-                break;
-
-            case 7: //Asignacion de estrellas
-
-                double promLechePorProductor = 0;
                 numProd = solicitarProductor();
                 totalLeche = Rutinas.obtenerLecheProductor(numProd);
                 entregas = Rutinas.obtenerEntregasProductor(numProd);
-                double promedioProdLecheEmpresa = Rutinas.promedioProdLeche();
 
-                if (totalLeche != 0 && entregas != 0){
-                    promLechePorProductor = (double)totalLeche/(double)entregas;
-                    out.println("El productor " + numProd + " ha entregado un promedio de " + promLechePorProductor + " botellas");
-                }else{
+                if (totalLeche != 0) {
+                    promBotellasPorProd = (float) totalLeche / (float) entregas;
+                    out.println("El productor " + numProd + " ha entregado un promedio de " + promBotellasPorProd + " botellas");
+                } else {
 
                     out.println("Productor no registrado");
                 }
-
-                if (promLechePorProductor <= promedioProdLecheEmpresa) {
-                    out.println("Estrellas asignadas al productor " +numProd+ ": 1.");
-                } else if (promLechePorProductor > (promedioProdLecheEmpresa) && promLechePorProductor <= (promedioProdLecheEmpresa*1.2)) {
-                    out.println("Estrellas asignadas al productor " + numProd + ": 2.");
-                } else if (promLechePorProductor > (promedioProdLecheEmpresa*1.2) && promLechePorProductor <= (promedioProdLecheEmpresa*1.5)) {
-                    out.println("Estrellas asignadas al productor " + numProd + ": 3.");
-                } else if (promLechePorProductor > (promedioProdLecheEmpresa*1.5) && promLechePorProductor < (promedioProdLecheEmpresa*1.7)) {
-                    out.println("Estrellas asignadas al productor " + numProd + ": 4.");
-                } else {
-                    out.println("Estrellas asignadas al productor " + numProd + ": 5.");
-                }
-
                 break;
 
-            case 8: //Imprimir el pago de cada productor
+            case 4: //Imprimir total de botellas de leche recibidas - Pregunta C
 
-                Rutinas.totalBotellasRecibidas();
+                out.println();
+                out.println("Se han recibido " + Rutinas.calcularTotalLeche() + " botella(s) en total");
                 break;
 
-            case 9: //'Opcion Mostrar promedio Leche
+            case 5: //Promedio de botellas recibidas por la compañía - Pregunta D
 
                 Rutinas.promedioProdLeche();
                 break;
 
-            case 10: //Modificar el precio de la leche
+            case 6: //Asignacion de estrellas (por productor) - Pregunta E
 
-                double precio;
-                out.println("Deme el nuevo precio: ");
-                precio = Double.parseDouble(in.readLine());
+                float promLechePorProductor = 0;
+                numProd = solicitarProductor();
+                totalLeche = Rutinas.obtenerLecheProductor(numProd);
+                entregas = Rutinas.obtenerEntregasProductor(numProd);
+                float promedioProdLecheEmpresa = (float) Rutinas.promedioProdLeche();
+                int estrellas = 0;
 
-                Rutinas.modificarPrecioLeche(precio);
-                out.println();
+                if (totalLeche != 0 && entregas != 0) {
+                    promLechePorProductor = (float) totalLeche / (float) entregas;
+                    out.println("El productor " + numProd + " ha entregado un promedio de " + promLechePorProductor + " botellas");
+                    if (promLechePorProductor <= promedioProdLecheEmpresa) {
+                        estrellas = 1;
+                    } else if (promLechePorProductor > (promedioProdLecheEmpresa) && promLechePorProductor <= (promedioProdLecheEmpresa * 1.2)) {
+                        estrellas = 2;
+                    } else if (promLechePorProductor > (promedioProdLecheEmpresa * 1.2) && promLechePorProductor <= (promedioProdLecheEmpresa * 1.5)) {
+                        estrellas = 3;
+                    } else if (promLechePorProductor > (promedioProdLecheEmpresa * 1.5) && promLechePorProductor < (promedioProdLecheEmpresa * 1.7)) {
+                        estrellas = 4;
+                    } else {
+                        estrellas = 5;
+                    }
+                    System.out.println("Estrellas asignadas al productor " + numProd + ": " + estrellas);
+                } else {
+
+                    out.println("Productor no registrado");
+                }
+
                 break;
 
-            case 11: //Salir de la aplicacion
+            case 7: //Imprimir las estrellas asignadas a cada uno de los productores (Pregunta F)
+
+//                TODO: "to HashMap or not to HashMap?"... Consider find an alternative evaluated in class for this. So far, this works!
+
+                HashMap<Integer, Integer> mapaEstre = new HashMap<>();
+
+                for (int i = 0; i < Rutinas.obtenerTotalProductores(); i++) {
+                    totalLeche = Rutinas.obtenerLecheProductor(i + 1);
+                    entregas = Rutinas.obtenerEntregasProductor(i + 1);
+                    promLechePorProductor = (float) totalLeche / (float) entregas;
+                    promedioProdLecheEmpresa = (float) Rutinas.promedioProdLeche();
+
+                    if (promLechePorProductor <= promedioProdLecheEmpresa) {
+                        estrellas = 1;
+                        mapaEstre.put((i + 1), estrellas);
+                    } else if (promLechePorProductor > (promedioProdLecheEmpresa) && promLechePorProductor <= (promedioProdLecheEmpresa * 1.2)) {
+                        estrellas = 2;
+                        mapaEstre.put((i + 1), estrellas);
+                    } else if (promLechePorProductor > (promedioProdLecheEmpresa * 1.2) && promLechePorProductor <= (promedioProdLecheEmpresa * 1.5)) {
+                        estrellas = 3;
+                        mapaEstre.put((i + 1), estrellas);
+                    } else if (promLechePorProductor > (promedioProdLecheEmpresa * 1.5) && promLechePorProductor < (promedioProdLecheEmpresa * 1.7)) {
+                        estrellas = 4;
+                        mapaEstre.put((i + 1), estrellas);
+                    } else {
+                        estrellas = 5;
+                        mapaEstre.put((i + 1), estrellas);
+                    }
+                }
+
+                for (Integer info: mapaEstre.keySet()){
+                    String key = info.toString();
+                    String value = mapaEstre.get(info).toString();
+                    System.out.println("Las estrellas para el productor " +key + " son " + value);
+                }
+
+                break;
+
+            case 8: //Salir de la aplicacion
 
                 noSalir = false;
                 break;
@@ -276,31 +295,6 @@ public class IUEntregasLeche{
         }
     }
 
-    /*****************************************************************
-     * Rutina: imprimirPagoProductores
-     * Propósito: Mostrar al usuario el pago de cada productor
-     * Parámetro:
-     *
-     * Retorna:
-     *****************************************************************/
-
-    static void imprimirPagoProductores(){
-
-        String[] pagos;
-
-        pagos = Rutinas.calcularPagoProductores();
-
-        out.println("=================Pagos a los productores ================");
-
-        for(int i = 0; i< pagos.length-1 ; i++){ //El último string trae el total a pagar
-
-            out.println(pagos[i]);
-        }
-
-        out.println("===============================================================");
-        out.println("El total a pagar es de: "+ pagos[pagos.length-1] + " colones");
-        out.println();
-    }
 
     /*****************************************************************
      * Rutina: solicitarProductor
