@@ -1,0 +1,211 @@
+.input_error{
+    border: 2px solid red;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    margin: 10;
+    padding: 20;
+    background-color: #eff1f1
+}
+
+#header_principal{
+    background-color: #366251;
+    padding: 10px 10px 0px 10px;
+    height: 70px;
+    align-content: center;
+}
+
+.logoEquipo{
+    float: left;
+    margin-right: 10px;
+}
+
+.header_nav{
+    float: left;
+    margin-top: 20px;
+    width: 70%;
+    height: 20px;
+    text-align: center;
+    background-color: #366251;
+}
+
+.header_nav a{
+    text-decoration: none;
+    color: #b2bec3;
+    margin: 0px 10px 0px 10px;
+}
+
+main{
+    height: 700px;
+    padding: 20px;
+    background-color: #eff1f1;
+}
+
+.column {
+    /* float: left; */
+    text-align: left;
+    width: 90%;
+    padding: 10px;
+    margin-left: 15px;
+    
+    /* height: 450px; */
+    column-count: 4;
+    /* column-rule-style: solid; */
+
+  }
+
+.subcolumn{
+    text-align: left;
+    width: 70%;
+    /* height: 500px; */
+    column-count: 2;
+    padding: 3px;
+    margin-left: 10px;
+}
+
+.columnAutor{
+    text-align: left;
+    width: 100%;
+    /* height: 500px; */
+    column-count: 4;
+    padding: 3px;
+    margin-left: 10px;
+}
+
+.row{
+    display: inline-block;
+}
+
+.info_pers_col{
+    margin-top: 10px;
+    margin-left: 20px;
+    height: auto;
+    /* border-style: solid;
+    border-color: teal; */
+    display: inline-block;
+}
+
+.row:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.tituloRegistroMain {
+    width: 100%; 
+    font-size: 2em;
+    font-weight: 700;
+    text-align: center;
+    padding: 10px;
+    color: #1e272e;
+    }
+
+.tituloRegistro h2{
+    width: 100%; 
+    font-size: 2em;
+    font-weight: 700;
+    text-align: center;
+    padding: 10px;
+    color: #1e272e;
+}
+
+.tituloRegistro h3{
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.formRegistroCliente{
+    width: 100%;
+    height: auto;
+    padding: 20px 0px 20px 0;
+    text-align: center;
+    margin-top: 10px;
+    float: left; 
+}
+
+.datosCliente{
+    /* text-align: left; */
+    /* float: left; */
+    /* display: inline-block; */
+    /* height: auto; */
+    width: 100%;
+    /* padding: 20px 20px 20px 20px; */
+    background-color: #B2BEC3;  
+    height: auto;
+}
+
+.mensajePlaceholder{
+    width: 500px;
+    border-style: groove;
+    border-color: rgb(43, 207, 14);
+}
+
+img{
+    max-height: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px;
+    border-color: rgb(43, 207, 14);
+}
+
+
+
+
+/* .fotoLibro{
+    float: left;
+    height: 240px;
+    width: 180px;
+    margin-left: 5%;
+    padding-top: 10px;
+    background-color: #e3e7e6;   
+} */
+
+
+#btnRegCliente{
+    text-align: center;
+    width: 80%;
+    margin: 20px;
+    float: center; 
+    background-color: #366251;
+    border-radius: 10px;
+    border: none;
+    width: 130px;
+    height: 30px;
+    color: #b2bec3;
+    font-size: 1em;
+}
+
+#btn_registrar{
+    text-align: center;
+    width: 80%;
+    margin: 20px;
+    float: center; 
+    background-color: #366251;
+    border-radius: 10px;
+    border: none;
+    width: 130px;
+    height: 30px;
+    color: #b2bec3;
+    font-size: 1em;
+}
+
+#btn_registrar:hover{
+    background-color: #B2BEC3;
+    color: #1e272e;
+}
+
+#tbregistroLibro{
+    text-align: center;
+    width: 100%;
+    margin-top: 40px;
+    background-color: yellow;
+}
+
+#tbregistroLibro thead{
+    margin-top: 20px;
+
+}

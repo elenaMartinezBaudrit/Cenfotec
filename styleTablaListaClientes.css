@@ -1,0 +1,43 @@
+.tituloCliente h1{
+    text-align: center;
+}
+
+#tblInfoPersCliente {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#tblInfoPersCliente td, #tblInfoPersCliente th{
+    border:1px solid #ddd;
+    padding: 8px;
+}
+
+#tblInfoPersCliente tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+#tblInfoPersCliente tr:hover{
+    background-color: #ddd;
+}
+
+#tblInfoPersCliente th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #359973;
+    color: white;
+}
+
+#tblPerfilCliente {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#tblPerfilCliente th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #359973;
+    color: white;
+}
+
