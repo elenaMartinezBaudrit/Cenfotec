@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Actualizar datos - Cliente</title>
+        <link rel="stylesheet" href="css/styleRegCliente.css">
+        <link rel="stylesheet" href="css/navBar.css">
+
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700">
+    </head>
+    <body>
+            <header >
+                    <div class="navbar">
+                            <div class="logoEquipo">
+                                <a href="QuienesSomos.html">
+                                    <img src="img/LogoAppliTeam.png" alt="ApliTeam">
+                                </a>
+                                </div>
+                        <a href="Inicio.html">Inicio</a>
+                        <a href="Servicios.html">Servicios</a>
+                        <div class="subnav">
+                            <button class="subnavbtn">Admin App<i class="fa fa-caret-down"></i></button>
+                            <div class="subnav-content">
+                            <a href="registroLibros.html">Registro libro</a>
+                            <a href="registroAutor.html">Registro autor</a>
+                            <a href="listar_Libros.html">Ver catálogo B&N</a>
+                            <a href="lista_autores.html">Ver autores registrados</a>
+                            <a href="actualizar_autores.html">Actualizar autores</a>
+                            <a href="actualizar_Libros.html">Actualizar libros</a>
+                            <a href="#team">Librerías listadas</a>
+                            <a href="#team">Sucursales listadas</a>
+                            <a href="listaClientes.html">Clientes</a>
+                            <a href="#team">Clubes de lectura</a>
+                            </div>
+                        </div>
+                        <div class="subnav">
+                            <button class="subnavbtn">Admin Librería <i class="fa fa-caret-down"></i></button>
+                            <div class="subnav-content">
+                            <a href="#bring">Registro Librería</a>
+                            <a href="#deliver">Registro Sucursal</a>
+                            <a href="#package">Crear Club de Lectura</a>
+                            <a href="#express">Ver info librería</a>
+                            <a href="#team">Ver sucursales</a>
+                            <a href="#team">Ver Clubes de Lectura</a>
+                            <a href="listar_Libros.html">Catálogo disponible</a>
+                            <a href="#team">Intercambios</a>
+                            </div>
+                        </div>
+                        <div class="subnav">
+                            <button class="subnavbtn">Clientes <i class="fa fa-caret-down"></i></button>
+                            <div class="subnav-content">
+                            <a href="registroCliente.html">Registro Cliente</a>
+                            <a href="perfilCliente.html">Ver perfil</a>
+                            <a href="actualizar_clientes.html">Actualizar perfil</a>
+                            <a href="listar_Libros.html">Ver libros adquiridos</a>
+                            <a href="#link4">Intercambio de libros</a>
+                            <a href="#link4">Clubes de Lectura</a>
+                            <a href="#link4">Carrito de compras</a>
+                            </div>
+                        </div>
+                        <a href="#contact">Contact</a>
+                    </div> 
+                </header>
+        <main>
+                <h1 class="tituloRegistro">Actualizar Datos de Cliente</h1>
+                <form id="formRegistroCliente">
+                    <div class="datosCliente">
+                        <h2 class="tituloRegistroMain">Información personal</h2>
+                        <div class="row">
+                            <div class="column">
+                                <div class="info_pers_col">
+                                    
+                                    <h3 class="tituloRegistro">Nombre</h3>
+                                    <div class="subcolumn">
+                                        <label for="txtPrimerNombre">Primer nombre*</label>
+                                        <input type="text" id="txtPrimerNombre">
+                                    </div>  
+                                    <div class="subcolumn">
+                                        <label for="txtSegundoNombre">Segundo nombre</label>
+                                        <input type="text" id="txtSegundoNombre">
+                                    </div>
+                                    <div class="subcolumn">
+                                        <label class="subcolumn" for="txtPrimerApellido">Primer apellido*</label>
+                                        <input type="text" id="txtPrimerApellido">
+                                    </div>
+                                    <div class="subcolumn">
+                                        <label for="txtSegundoApellido">Segundo apellido</label>
+                                        <input type="text" id="txtSegundoApellido">
+                                    </div>
+                                
+                                    <div class="subcolumn">
+                                        <label for="sltGenero">Género*</label>
+                                        <select id="sltGenero" class="dropdown">
+                                            <option value="">--Seleccione género--</option>
+                                            <option value="Femenino">Femenino</option>
+                                            <option value="Masculino">Masculino</option>
+                                            <option value="Otro">Otro</option>
+                                            <option value="Prefiero no responder">Prefiero no responder</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="info_pers_col">
+                                    <h3 class="tituloRegistro">Identificación</h3>
+                                    <label for="radTipoId">Seleccione el tipo de identificación*</label>
+                                    <br>
+                                    <input type="radio" id="radTipoId" name="tipoId" value="Cedula de Identidad">Cédula de identidad
+                                    <input type="radio" id="radTipoId" name="tipoId" value="DIMEX">DIMEX
+                                    <br>
+                                    <br>
+                                    <div class="subcolumn">
+                                        <label for="txtNumId">Número de identificación*</label>
+                                        <input type="number" id="txtNumId">
+                                    </div>
+                                    <div class="subcolumn">
+                                        <label for="txtEmail">Correo electrónico*</label>
+                                        <input type="email" id="txtEmail">
+                                    </div>
+                                    <div class="subcolumn">
+                                        <label for="sltFechaNac" class="tituloRegistro">Fecha de nacimiento*</label></h3>
+                                        <input type="date" id="sltFechaNac">
+                                        <!-- Esto se debe calcular de acuerdo a la fecha de nacimiento
+                                    Por el momento, es un input sencillo -->
+                                    </div>
+                                    <div class="subcolumn">
+                                        <label for="txtEdad">Edad*</label>
+                                        <input type="number" id="txtEdad" min="1" max="120">
+                                    </div>
+                                </div>
+                                <div class="info_pers_col">
+                                    <h3 class="tituloRegistro">Dirección</h3>
+                                    <div class="subcolumn">
+                                        <label for="txtProvincia">Provincia*</label>
+                                        <select class="form-control" id="txtProvincia">
+                                        <option value="">--Seleccione una provincia--</option>
+                                    
+                                        </select>
+                                    </div>
+                                    <div class="subcolumn">
+                                        <label for="txtCanton">Cantón*</label>
+                                        <select class="form-control" id="txtCanton">
+                                            <option value="">--Seleccione un cantón--</option>
+                                        </select>
+                                    </div>
+                                    <div class="subcolumn">
+                                        <label for="txtDistrito">Distrito*</label>
+                                        <input type="text" id="txtDistrito">
+                                    </div>
+                                    <div class="subcolumn">
+                                        <label for="txtDireccionExacta">Detalles*</label>
+                                        <textarea id= "txtDireccionExacta" name="txtDireccionExacta" rows="4" cols="20"></textarea>
+                                    </div>
+                                </div>
+                                <div class="info_pers_col">
+                                    <h3>Método de pago</h3>
+                                        <label for="radTipoTarjeta">Seleccione el tipo de tarjeta*</label>
+                                        <br>
+                                        <input type="radio" id="radTipoTarjeta" name="tipoTarjeta" value="Tarjeta de credito">Tarjeta de Crédito
+                                        <input type="radio" id="radTipoTarjeta" name="tipoTarjeta" value="Tarjeta de debito">Tarjeta de Débito
+                                    <br>
+                                    <div class="subcolumn">
+                                        <label for="txtNombreTarj">Nombre que aparece en la tarjeta*</label>
+                                        <input type="text" id="txtNombreTarj">
+                                    </div>
+                                    <div class="subcolumn">
+                                        <label for="txtNumTarj">Número de Tarjeta*</label>
+                                        <input type="number" id="txtNumTarj" min="0">
+                                    </div>
+                                    <a>Indique la fecha de vencimient*o</a>
+                                    <br>
+                                    <label for="txtMesVencTarj">Mes*</label></h3>
+                                    <input type="number" id="txtMesVencTarj" min="1" max="12">
+                                    <label for="txtYearVencTarj">Año*</label></h3>
+                                    <input type="number" id="txtYearVencTarj" min="2019">
+                                    <div class="subcolumn">
+                                        <label for="txtCVV">Código de Seguridad*</label>
+                                        <input type="number" id="txtCVV" min="000" max="999">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h2 class="tituloRegistroMain">Preferencias de Lectura</h2> 
+                        <div class="row">
+                            <div class="column">
+                                <div class="info_pers_col">
+                                    <h3 class="tituloRegistro"><label for="txtGenFavorito">Indica tu género de lectura favorito*</label></h3>
+                                    <select id="txtGenFavorito" class="dropdown">
+                                        <option value="">--Selecciona género de lectura--</option>
+                                        <option value="ciencia ficcion">Ciencia Ficción</option>
+                                        <option value="aventuras">Aventuras</option>
+                                        <option value="autoficcion">Autoficción</option>
+                                        <option value="policiaco">Policíaco</option>
+                                        <option value="drama">Drama</option>
+                                        <option value="romance">Romance</option>
+                                        <option value="infantil">Infantil</option>
+                                        <option value="literatura clasica">Literatura Clásica</option>
+                                        <option value="novela historica">Novela histórica</option>
+                                        <option value="poesia">Poesía</option>
+                                        <option value="ensayo">Ensayo</option>
+                                        <option value="autoayuda">Autoayuda</option>
+                                    </select>
+                                </div>
+                                <div class="info_pers_col">
+                                    <h3 class="tituloRegistro"><label for="txtLibroFavorito">¿Cuál es tu libro favorito?</label></h3>
+                                    <input type="text" id="txtLibroFavorito">
+                                </div>
+                                <div class="info_pers_col">
+                                    <h3 class="tituloRegistro"><label for="txtAutorFavorito>">¿Cuál es tu autor favorito?</label></h3>
+                                    <input type="text" id="txtAutorFavorito">
+                                </div>
+                                <div class="info_pers_col">
+                                    <h3 class="tituloRegistro"><label for="radPartIntercambio">¿Te gustaría participar en intercambios de libros?*</label></h3>
+                                    <input type="radio" id="radPartIntercambio" name="partIntercambio" value="Si">Sí
+                                    <input type="radio" id="radPartIntercambio" name="partIntercambio" value="No">No
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                    <button type="button" id="btnRegCliente">Actualizar</button>
+                </form>
+            </main>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <!-- <script src="js/direcciones.js"></script> -->
+        <script src="js/servicioRegCliente.js"></script>
+        <script src="js/controlador_actualizar_clientes.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+    </body>
+</html>

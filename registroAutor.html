@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registro de Autor</title>
+    <link rel="stylesheet" href="css/navBar.css">
+    <link rel="stylesheet" href="css/styleRegCliente.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700">
+</head>
+<body>
+        <header >
+                <div class="navbar">
+                        <div class="logoEquipo">
+                            <a href="QuienesSomos.html">
+                                <img src="img/LogoAppliTeam.png" alt="ApliTeam">
+                            </a>
+                            </div>
+                    <a href="Inicio.html">Inicio</a>
+                    <a href="Servicios.html">Servicios</a>
+                    <div class="subnav">
+                        <button class="subnavbtn">Admin App<i class="fa fa-caret-down"></i></button>
+                        <div class="subnav-content">
+                        <a href="registroLibros.html">Registro libro</a>
+                        <a href="registroAutor.html">Registro autor</a>
+                        <a href="listar_Libros.html">Ver catálogo B&N</a>
+                        <a href="lista_autores.html">Ver autores registrados</a>
+                        <a href="actualizar_autores.html">Actualizar autores</a>
+                        <a href="actualizar_Libros.html">Actualizar libros</a>
+                        <a href="#team">Librerías listadas</a>
+                        <a href="#team">Sucursales listadas</a>
+                        <a href="listaClientes.html">Clientes</a>
+                        <a href="#team">Clubes de lectura</a>
+                        </div>
+                    </div>
+                    <div class="subnav">
+                        <button class="subnavbtn">Admin Librería <i class="fa fa-caret-down"></i></button>
+                        <div class="subnav-content">
+                        <a href="#bring">Registro Librería</a>
+                        <a href="#deliver">Registro Sucursal</a>
+                        <a href="#package">Crear Club de Lectura</a>
+                        <a href="#express">Ver info librería</a>
+                        <a href="#team">Ver sucursales</a>
+                        <a href="#team">Ver Clubes de Lectura</a>
+                        <a href="listar_Libros.html">Catálogo disponible</a>
+                        <a href="#team">Intercambios</a>
+                        </div>
+                    </div>
+                    <div class="subnav">
+                        <button class="subnavbtn">Clientes <i class="fa fa-caret-down"></i></button>
+                        <div class="subnav-content">
+                        <a href="registroCliente.html">Registro Cliente</a>
+                        <a href="perfilCliente.html">Ver perfil</a>
+                        <a href="actualizar_clientes.html">Actualizar perfil</a>
+                        <a href="listar_Libros.html">Ver libros adquiridos</a>
+                        <a href="#link4">Intercambio de libros</a>
+                        <a href="#link4">Clubes de Lectura</a>
+                        <a href="#link4">Carrito de compras</a>
+                        </div>
+                    </div>
+                    <a href="#contact">Contact</a>
+                </div> 
+            </header>
+    <main>
+        <h1 class="tituloRegistro">Registro de Autor</h1>
+        <form class="formRegistroCliente">
+            <div class="datosCliente">
+                <h2 class="tituloRegistroMain">Información del autor</h2>
+                <div class="row">
+                    <div class="columnAutor">
+                        <div>
+                            <div class="subcolumn">
+                                <label for="txt_nombre">Nombre</label>
+                                <input type="text" id="txt_nombre">
+                            </div>
+                            <div class="subcolumn">
+                                <label for="txt_generoAutor">Género Literario</label>
+                                <input type="text" id="txt_generoAutor">
+                            </div>
+                        </div>
+                        <div class="subcolumn">
+                            <label for="txt_biografia">Biografía</label>
+                            <textarea id= "txt_biografia" name="txt_biografia" rows="5" cols="30"></textarea>
+                        </div>
+                        <div class="subcolumn">
+                            <label for="txt_libros">Libros</label>
+                            <textarea id= "txt_libros" name="txt_libros" rows="5" cols="30"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" id="btn_registrar">Registrar</button>
+           
+        </form>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="js/servicio_autores.js"></script>
+    <script src="js/controlador_registro_autores.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RegistroLibros</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilosRegistroLibro.css">
+    <link rel="stylesheet" href="css/navBar.css">
+    
+</head>
+
+<body>
+
+        <header >
+                <div class="navbar">
+                        <div class="logoEquipo">
+                            <a href="QuienesSomos.html">
+                                <img src="img/LogoAppliTeam.png" alt="ApliTeam">
+                            </a>
+                            </div>
+                    <a href="Inicio.html">Inicio</a>
+                    <a href="Servicios.html">Servicios</a>
+                    <div class="subnav">
+                        <button class="subnavbtn">Admin App<i class="fa fa-caret-down"></i></button>
+                        <div class="subnav-content">
+                        <a href="registroLibros.html">Registro libro</a>
+                        <a href="registroAutor.html">Registro autor</a>
+                        <a href="listar_Libros.html">Ver catálogo B&N</a>
+                        <a href="lista_autores.html">Ver autores registrados</a>
+                        <a href="actualizar_autores.html">Actualizar autores</a>
+                        <a href="actualizar_Libros.html">Actualizar libros</a>
+                        <a href="#team">Librerías listadas</a>
+                        <a href="#team">Sucursales listadas</a>
+                        <a href="listaClientes.html">Clientes</a>
+                        <a href="#team">Clubes de lectura</a>
+                        </div>
+                    </div>
+                    <div class="subnav">
+                        <button class="subnavbtn">Admin Librería <i class="fa fa-caret-down"></i></button>
+                        <div class="subnav-content">
+                        <a href="#bring">Registro Librería</a>
+                        <a href="#deliver">Registro Sucursal</a>
+                        <a href="#package">Crear Club de Lectura</a>
+                        <a href="#express">Ver info librería</a>
+                        <a href="#team">Ver sucursales</a>
+                        <a href="#team">Ver Clubes de Lectura</a>
+                        <a href="listar_Libros.html">Catálogo disponible</a>
+                        <a href="#team">Intercambios</a>
+                        </div>
+                    </div>
+                    <div class="subnav">
+                        <button class="subnavbtn">Clientes <i class="fa fa-caret-down"></i></button>
+                        <div class="subnav-content">
+                        <a href="registroCliente.html">Registro Cliente</a>
+                        <a href="perfilCliente.html">Ver perfil</a>
+                        <a href="actualizar_clientes.html">Actualizar perfil</a>
+                        <a href="listar_Libros.html">Ver libros adquiridos</a>
+                        <a href="#link4">Intercambio de libros</a>
+                        <a href="#link4">Clubes de Lectura</a>
+                        <a href="#link4">Carrito de compras</a>
+                        </div>
+                    </div>
+                    <a href="#contact">Contact</a>
+                </div> 
+            </header>
+    <main>
+        <div class="TituloRegistro">   
+            <h1>Registrar libro</h1>
+            <h4>Llene el formulario con la información del libro que desea registrar</h4>
+        </div>
+
+        <form id="formRegistroLibro">
+            <div class="datoslibro">
+                <div class="tituloLibro">
+                    <p>Título del libro</p>
+                    <label for="txtTitulo"></label>
+                    <input type="text" id="txtTitulo">
+                </div>
+
+                <div class="autorLibro">
+                    <p>Autor del libro</p>
+                    <label for="slt_Autor"></label>
+                    <select id="slt_Autor">
+                        <option value="">--Seleccione un autor--</option>   
+                    </select>
+                </div>
+
+                <div class="editorialLibro">
+                    <p>Editorial</p>
+                    <label for="txtEditorial"></label>
+                    <input type="text" id="txtEditorial">
+                </div>
+
+                <div class="categoriaLibro">
+                    <p>Categoría</p>
+                    <label for="slt_Categoria"></label>
+                    <select id="slt_Categoria" onchange="getSelectValue();">
+                        <option value="">--Seleccione una categoría--</option> 
+                        <option value="Contemporanea">Literatura contemporanea</option>
+                        <option value="Clasica">Literatura clásica</option>
+                        <option value="Infantil">Literatura infantil</option>
+                         
+                    </select>
+                </div>
+
+
+                <div class="generoLibro">
+                    <p>Género</p>
+                    <label for="slt_Genero"></label>
+                    <select id="slt_Genero">
+                        <option value="">--Seleccione un género--</option>   
+                    </select>
+                </div>
+                
+
+            <div class="precioCantidad">
+                <div class="precio">
+                    <p>Precio</p>
+                    <label for="numPrecio"></label>
+                    <input type="number" id="numPrecio" min="0">
+                </div>
+
+                <div class="cantidad">
+                    <p>Cantidad</p>
+                    <label for="cantLibro"></label>
+                    <input type="number" id="cantLibro" min="0">
+                </div>
+            </div>   
+
+                <div class="resenna">
+                    <p>Reseña (máximo 600 caracteres)</p>
+                    <label for="txtResenna"></label>
+                    <textarea id="txtResenna" rows="6"> </textarea>
+                </div>
+
+            </div>
+
+            <div class="fotoLibro">
+                <p>Portada</p>
+                <label for="imgPortada"></label>
+                <input type="image" id="imgPortada" src="img/portada.png">
+            </div>
+
+            <div class="botones">
+
+
+            <div class="botonRegistro">
+            <button type="button" id="btnRegistrarLibro">Registrar libro</button>
+            </div>
+
+            <div class="botonEditar">
+                <a href="./listar_Libros.html">Ver listado de libros</a>
+            </div>  
+        </div>      
+                
+        </form>
+
+
+<div class="tablaLibros">
+        <table id= "tbregistroLibro">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Editorial</th>
+                    <th>Categoría</th>
+                    <th>Género</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                    
+
+            </tbody>
+
+        </table>
+    </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="js/servicio_RegistroLibros.js"></script>
+    <script src="js/controlador_RegistroLibros.js"></script>
+    <script src="js/controlador_listar_Libros.js"></script>
+    
+</body>
+
+</html>
